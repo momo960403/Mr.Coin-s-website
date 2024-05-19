@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倒數計時器</title>
+    <link rel="stylesheet" href="計時器.css">
+</head>
+<body>
+    <div class="countdown-container">
+        <h1>倒數計時器</h1>
+        <label for="minutes">請輸入要倒數幾分鐘:</label>
+        <input type="number" id="minutes" min="1" placeholder="">
+        <button onclick="startCountdown()">開始倒數計時</button>
+        <div id="countdown"></div>
+        <div id="reward"></div>
+    </div>
+
+
+    <script src="計時器.js"></script>
+</body>
+</html>

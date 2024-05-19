@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color:#88dddd; /* 背景顏色 */
+        text-align: center; /* 文字置中 */
+    }
+    .calculator {
+        width: 350px;
+        margin: 50px auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        background-color: #f9f9f9;
+    }
+    input[type="button"] {
+        width: 70px;
+        height: 50px;
+        margin: 5px;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    #result {
+        margin-bottom: 10px;
+        padding: 10px;
+        width: 100%;
+        font-size: 24px;
+        border: none;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+<br>
+<br>
+<h1>簡易計算機</h1>
+<div class="calculator">
+    <input type="text" id="result" readonly>
+    <input type="button" value="1" onclick="appendToResult('1')">
+    <input type="button" value="2" onclick="appendToResult('2')">
+    <input type="button" value="3" onclick="appendToResult('3')">
+    <input type="button" value="+" onclick="appendToResult('+')">
+    <br>
+    <input type="button" value="4" onclick="appendToResult('4')">
+    <input type="button" value="5" onclick="appendToResult('5')">
+    <input type="button" value="6" onclick="appendToResult('6')">
+    <input type="button" value="-" onclick="appendToResult('-')">
+    <br>
+    <input type="button" value="7" onclick="appendToResult('7')">
+    <input type="button" value="8" onclick="appendToResult('8')">
+    <input type="button" value="9" onclick="appendToResult('9')">
+    <input type="button" value="*" onclick="appendToResult('*')">
+    <br>
+    <input type="button" value="C" onclick="clearResult()">
+    <input type="button" value="0" onclick="appendToResult('0')">
+    <input type="button" value="=" onclick="calculate()">
+    <input type="button" value="/" onclick="appendToResult('/')">
+</div>
+
+
+<script>
+    function appendToResult(value) {
+        document.getElementById('result').value += value;
+    }
+
+
+    function clearResult() {
+        document.getElementById('result').value = '';
+    }
+
+
+    function calculate() {
+        try {
+            document.getElementById('result').value = eval(document.getElementById('result').value);
+        } catch (error) {
+            document.getElementById('result').value = 'Error';
+        }
+    }
+</script>
+<a href="index.html">BACK TO HOMEPAGE</a>
+</body>
+</html>

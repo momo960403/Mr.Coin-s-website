@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f3f3f3;
+}
+
+
+.countdown-container {
+    text-align: center;
+}
+
+
+input[type="number"] {
+    padding: 8px;
+    margin: 10px;
+    width: 100px;
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+#countdown {
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+#reward {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}

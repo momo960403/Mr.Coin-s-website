@@ -1,0 +1,44 @@
+h2 {
+    font-size: 60px;
+    text-align: center;
+}
+
+
+.container{
+    text-align: center;
+    line-height: 100px;
+}
+
+
+p{
+    text-align: center;
+    font-size: 20px;
+}
+
+
+li{
+    text-align: center;
+    font-size: 20px;
+}
+
+
+.btn{
+    color: gold;
+    padding: 20px 50px;
+    text-align: center;
+    font-size: 30px;
+}
+
+
+.btn:hover{
+    background-color: gold;
+    color:grey
+}
+
+
+#time{
+    font-size: 100px;
+    color: gold;
+    display: block;
+    margin: +30px;
+}

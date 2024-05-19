@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body{
+            background-color: #88dddd;
+            padding: 0;
+            margin: 0;
+        }
+</style>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>手寫板</title>
+<style>
+    #canvas {
+        border: 1px solid #000;
+        cursor: crosshair;
+    }
+</style>
+</head>
+<body>
+
+
+<canvas id="canvas" width="1500" height="600"></canvas>
+
+
+<button id="eraser">啟用橡皮擦</button>
+<button id="undo">返回</button>
+
+
+<script>
+    window.onload = function() {
+        var canvas = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+        var drawing = false;
+        var eraserMode = false;
+        var lastX, lastY;
+        var history = [];
+
+
+        canvas.addEventListener('mousedown', function(e) {
+            drawing = true;
+            lastX = e.pageX - this.offsetLeft;
+            lastY = e.pageY - this.offsetTop;
+            context.beginPath();
+            context.moveTo(lastX, lastY);
+        });
+
+
+        canvas.addEventListener('mousemove', function(e) {
+            if (drawing) {
+                var currentX = e.pageX - this.offsetLeft;
+                var currentY = e.pageY - this.offsetTop;
+                draw(currentX, currentY);
+                lastX = currentX;
+                lastY = currentY;
+            }
+        });
+
+
+        canvas.addEventListener('mouseup', function() {
+            drawing = false;
+            saveState();
+        });
+
+
+        canvas.addEventListener('mouseout', function() {
+            drawing = false;
+        });
+
+
+        function draw(x, y) {
+            if (eraserMode) {
+                context.clearRect(x - 5, y - 5, 10, 10); // 这里的 5 是橡皮擦的大小
+            } else {
+                context.lineTo(x, y);
+                context.stroke();
+            }
+        }
+
+
+        var eraserButton = document.getElementById('eraser');
+        eraserButton.addEventListener('click', function() {
+            eraserMode = !eraserMode;
+            if (eraserMode) {
+                eraserButton.textContent = '取消橡皮擦';
+            } else {
+                eraserButton.textContent = '啟用橡皮擦';
+            }
+        });
+
+
+        var undoButton = document.getElementById('undo');
+        undoButton.addEventListener('click', function() {
+            undo();
+        });
+
+
+        function saveState() {
+            var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+            history.push(imageData);
+        }
+
+
+        function undo() {
+            if (history.length > 0) {
+                context.putImageData(history.pop(), 0, 0);
+            }
+        }
+    };
+</script>
+
+
+</body>
+</html>

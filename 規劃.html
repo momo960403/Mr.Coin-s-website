@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"></meta>
+        <title>Mr. Coin's website: Learning with Mr. Coin!</title>
+        <link rel="stylesheet" href="規劃_行程表.css">
+        <link rel="stylesheet" href="規劃.css">
+    </head>
+    <body>
+        <h1>PLANNING</h1>
+        <hr/>
+        <h2>It's time to plan your schedule!</h2>
+        <h3>Please enter the course you take:</h3>
+
+        <div id="inputContainer">
+          <div class="inputGroup">
+            <label for="startDate">起始時間：</label>
+            <input type="datetime-local" id="startDate">
+          </div>
+          <div class="inputGroup">
+            <label for="endDate">結束時間：</label>
+            <input type="datetime-local" id="endDate">
+          </div>
+        </div>
+        
+
+        <div id="inputContainer">
+          <div>
+            <label for="subject">科目：</label>
+            <input type="text" id="subject" list="subjectOptions" placeholder="請選擇科目">
+            <datalist id="subjectOptions">        
+              <option value="國文"></option>
+              <option value="英文"></option>
+              <option value="數學"></option>
+              <option value="歷史"></option>
+              <option value="地理"></option>
+              <option value="公民"></option>
+              <option value="生物"></option>
+              <option value="化學"></option>
+              <option value="物理"></option>
+              <option value="地科"></option>
+            </datalist>
+          </div>
+          <div>
+            <label for="homework">作業形式:</label>
+            <input type="text" id="homework" list="homeworkOptions" placeholder="選擇作業形式">
+            <datalist id="homeworkOptions">
+              <option value="預習">
+              <option value="複習">
+              <option value="課本">
+              <option value="習作">
+              <option value="講義">
+              <option value="考卷">
+              <option value="其他">
+            </datalist>
+          </div>
+        </div>
+        
+        <button type="button" onclick="addItem()">添加到表格</button>
+        <button type="reset">清空輸入</button>
+
+        <table id="outputTable">
+          <thead>
+            <tr>
+              <th>科目</th>
+              <th>時間</th>
+              <th>作業形式</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+        
+        </br>
+        <a href="index.html">BACK TO HOMEPAGE</a>
+    </body>
+    <script src="規劃.js"></script>
+</html>
